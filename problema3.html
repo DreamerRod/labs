@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body onload="inicio()">
+<script type="text/javascript">
+function inicio(){
+inputString = "tata";
+var dat=palindromeRearranging (inputString) ;//= verdadero;
+document.write(dat);
+}
+
+
+function palindromeRearranging(inputString){
+var datos;
+var dato=[];
+//var numdat=[];
+var num=0;
+for(var i=0;i<inputString.length;i++){
+//num=num+(i+1);
+var cont=i;
+dato [i]="";
+//numdat [i]=i;
+for(var j=0;j<inputString.length;j++){
+dato[i]=dato [i]+inputString[cont];
+cont++;
+if(cont==inputString.length){
+cont=0;
+}
+}
+document.write("<hr>")
+num=num+buscar (dato [i]);
+}
+
+//var verif=verifi (dato,numdat);
+
+//document.write(dato, num);
+if(num>0){
+datos=true;
+}else{
+datos=false;
+}
+return datos;
+}
+
+function buscar (sdato){
+var cant=0;
+//var pos = [];
+var letra=[];
+var dat="";
+for(var i=0;i<sdato.length;i++){
+//pos[i]=i;
+letra [i]=sdato [i];
+}
+
+for(var con=0;con <sdato.length;con++){
+for(var ten=sdato.length-1;ten>1;ten--){
+document.write(letra+"   "+cant+"<br>");
+var ayu=letra [ten-1];
+letra[ten-1]=letra [ten];
+letra [ten]=ayu;
+dat=union(letra);
+if(palindrome(dat)==true){
+cant++;
+//dat="";
+}/*else{
+dat="";
+}*/
+
+}
+/*dat=union(letra);
+if(palindrome(dat)==true){
+cant++;
+dat="";
+}else{
+dat="";
+}*/
+
+}
+
+
+
+return cant;
+}
+
+
+function union(letra){
+var datos="";
+for(var i=0;i <letra.length;i++){
+datos=datos+letra [i];
+}
+return datos;
+}
+
+function palindrome(input){
+var data="";
+for(var i=input.length-1;i >(-1);i--){
+data=data+input[i]
+}
+if(data==input){
+return true;
+}
+else{
+return false;
+}
+}
+</script>
+</body>
+</html>

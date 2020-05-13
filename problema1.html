@@ -13,6 +13,24 @@ var inputArray =["aba", "aa", "ad", "vcd", "aba"];
 var outputArray = allLongestStrings(inputArray);
 document.write(outputArray);
 }
+function allLongestStrings(inputArray){
+var tam=inputArray[0].length;
+for(var i= 0;i <inputArray.length;i++){
+	if(inputArray[i].length>tam){
+		tam=inputArray[i].length;
+	}
+}
+var cadenalarga =[]; //= allLongestStrings (inputArray);// = ["aba", "vcd", "aba"];
+var cont=0;
+for(var i=0;i < inputArray.length; i ++){
+if(inputArray[i].length==tam){
+cadenalarga[cont]=inputArray[i];
+cont++;
+}
+
+}
+return cadenalarga;
+}
 </script>
 </body>
 </html>

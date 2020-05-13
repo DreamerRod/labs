@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body onload="iniciar ()">
+<script type="text/javascript">
+function iniciar() {
+//inputString = "foo(bar(baz))blim";
+//inputString = "foo(bar)baz";
+inputString = "(bar)";
+var reverse= reverseInParentheses(inputString); //= "rab";
+//inputString = "foo(bar)baz";
+/*reverseInParentheses(inputString) = "foorabbaz";
+inputString = "foo(bar)baz(blim)";
+reverseInParentheses(inputString) = "foorabbazmilb";
+inputString = "foo(bar(baz))blim";
+reverseInParentheses(inputString) = "foobazrabblim";
+*/
+document.write(reverse);
+}
+function reverseInParentheses(inputString){
+var num=cont (inputString);
+num=parseInt(num/2);
+while(num>0){
+var dato = cutInParentheses(inputString);
+var esto = calif(dato);
+//document.write(esto+" "+inputString+"<br>");
+
+inputString=join(esto);
+num--;
+}
+//document.write(esto+" "+inputString);
+return inputString;
+}
+
+function calif(inputString){
+for(var i=0;i < inputString.length;i++){
+var a=0;var b=0;
+for(var j=0;j<inputString[i].length;j++){
+if(inputString [i][j]=='('){
+a=1;
+}
+if(inputString [i][j]==')'){
+b=1;
+}
+}
+if(a==1&&b==1){
+inputString  [i]=invertir (inputString[i]);
+}
+}
+return inputString;
+}
+
+function join(datos){
+var cad="";
+for(var i=0;i<datos.length;i++){
+cad=cad+datos [i];
+}
+return cad;
+}
+
+function cont(inputString){
+var cont=0;
+for(var i=0;i<inputString.length;i++){
+if(inputString[i]=='('||inputString[i]==')'){
+cont++;
+}
+}
+return cont;
+}
+
+
+
+
+function invertir(dato){
+var cadinv="";
+for(var i=dato.length-1;i>(-1);i--){
+if(dato [i]!='('&&dato [i]!=')'){
+cadinv=cadinv+dato [i];
+}
+}
+return cadinv;
+}
+
+
+function cutInParentheses(inputString){
+var cont=0;
+var rev=[];
+var letras = "";
+for(var i=0;i < inputString.length;i++){
+//if(cont>mayor){mayor=cont;}
+if(inputString[i]=='('){rev [cont]=letras; letras="";cont++;}
+//document.write(rev [cont]+"   "+inputString[i]+"<br>")
+/*rev [cont]=rev [cont]*/letras=letras+inputString[i];
+
+if(inputString[i]==')'){/*if(cont>0){*/rev [cont]=letras;letras="";cont++;}//}
+}
+rev [cont]=letras;
+return rev;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*function reverseInParentheses(inputString){
+var cont=0,mayor=cont;
+//var rev=[];
+var pos=[];
+
+for(var i=0;i < inputString.length;i++){
+if(inputString[i]=='('){cont++;
+pos[i]='i'+cont;}
+if(cont>mayor){mayor=cont;}
+//rev [i]=inputString[i];
+//pos [i]=cont;
+if(inputString[i]==')'){if(cont>0){pos[i]='f'+cont;cont--;}}
+}
+document.write(pos);
+
+
+
+
+for(var i=mayor;i > 0;i--){
+var cad="";
+var cadinv="";
+for(var j=0;j<inputString.length;j++){
+if(pos[j]==mayor){
+cad=cad+inputString[j];
+}
+}
+for(var k=cad.length-1;k>-1;k--){
+if(cad [k]!='(' && cad [k]!=')'){
+cadinv=cadinv+cad [k];
+}
+
+}
+
+document.write(cad+cadinv);
+
+
+
+}
+
+
+
+
+//document.write(mayor+" -   "+pos)
+
+}*/
+
+
+
+
+
+
+
+
+
+
+
+/*function reverseInParentheses(inputString){
+var cont=0;
+var mayor=cont;
+//var rev=[];
+var pos=[];
+for(var i=0;i < inputString.length;i++){
+if(inputString[i]=='('){
+cont++;
+}
+if(cont>mayor){
+mayor=cont;
+}
+
+//rev [i]=inputString[i];
+pos [i]=cont;
+
+if(inputString[i]==')'){
+if(cont>0){
+cont--;
+}
+}
+
+}
+
+for(var i=mayor;i > 0;i--){
+var cad="";
+var cadinv="";
+for(var j=0;j<inputString.length;j++){
+
+}
+
+}
+
+
+
+
+document.write(mayor+"    "+pos)
+
+}*/
+</script>
+</body>
+</html>
